@@ -1,0 +1,37 @@
+.env
+.env.*
+!.env.example
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Rust (polymarket-lag-arb)
+**/target/
+
+# Node (if any)
+node_modules/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local scan artifacts (regenerate with CLI; may contain redacted secrets)
+scan_workspace/
+reports/
+scan_*.json
+security_report.json
+security_report.html
+security_report.pdf
+products_security_report.json
+products_security_report.html

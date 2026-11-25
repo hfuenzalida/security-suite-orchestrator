@@ -1,0 +1,35 @@
+# cargo test --lib — captured output
+# Working directory: E:\Estrategias\Projects\Security Scan\polymarket-lag-arb
+# Shell wrapper exit_code: 2
+# Cargo EXIT_CODE: 101
+# Source: _cargo_test_full.txt / terminal 311471
+
+cargo :    Compiling aws-lc-sys v0.40.0
+   Compiling clap_builder v4.6.0
+   Compiling bon v3.9.1
+   Compiling strum_macros v0.28.0
+   Compiling clap_derive v4.6.1
+   Compiling nu-ansi-term v0.50.3
+   Compiling serde_repr v0.1.20
+   Compiling rust_decimal_macros v1.40.0
+   Compiling thread_local v1.1.9
+rustc-LLVM ERROR: IO failure on output stream: no space on device
+error: could not compile `nu-ansi-term` (lib)
+Caused by:
+  process didn't exit successfully: `rustc ... nu-ansi-term ...` (exit code: 101)
+warning: build failed, waiting for other jobs to finish...
+error: failed to write to `...\cargo-target\debug\deps\...\full.rmeta`: Espacio en disco insuficiente. (os error 112)
+error: could not compile `thread_local` (lib) due to 1 previous error
+error: linking with `link.exe` failed: exit code: 1140
+LINK : fatal error LNK1318: Unexpected PDB error; LIMIT (12) / FILE_SYSTEM (3)
+error: could not compile `rust_decimal_macros` (lib) due to 1 previous error
+error: could not compile `serde_repr` (lib) due to 1 previous error
+error: could not compile `strum_macros` (lib) due to 1 previous error
+rustc-LLVM ERROR: IO failure on output stream: no space on device
+error: could not compile `clap_derive` (lib)
+error: failed to run custom build command for `aws-lc-sys v0.40.0`
+  fatal error C1085: Cannot write compiler generated file: '...\jitterentropy-base.o': No space left on device
+error: could not compile `clap_builder` (lib) due to 1 previous error
+
+EXIT_CODE=101
+SHELL_EXIT_CODE=2

@@ -1,0 +1,14 @@
+{
+  "login_url": "https://your-app.example/login",
+  "username": "${SECSCAN_AUTH_USERNAME}",
+  "password": "${SECSCAN_AUTH_PASSWORD}",
+  "method": "playwright",
+  "success_url_contains": "/dashboard",
+  "username_selector": "input[type=\"email\"]",
+  "password_selector": "input[type=\"password\"]",
+  "submit_selector": "button[type=\"submit\"]",
+  "totp_secret": "${SECSCAN_AUTH_TOTP_SECRET:-}",
+  "totp_selector": "input[name=\"code\"]",
+  "headers": {},
+  "allowed_hosts": []
+}

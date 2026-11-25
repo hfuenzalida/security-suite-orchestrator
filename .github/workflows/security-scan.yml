@@ -1,0 +1,48 @@
+# Unit tests + syntax check + CI-minimal tool matrix (pip CLIs for --ci-profile gates).
+name: security-scan-orchestrator
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Pytest
+        run: pytest tests/ -q
+      - name: Compile orchestrator
+        run: python -m py_compile security_scan.py
+
+  # Verifies the pip-installable subset used by typical merge-pipeline --ci-profile runs.
+  ci-minimal-tools:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CI-minimal CLIs
+        run: pip install -r requirements-ci-tools.txt
+      - name: Verify ci-minimal profile (strict)
+        run: python check_security_tools.py --profile ci-minimal --strict --json | tee ci-tools-report.json
+      - name: Upload tool report
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-tools-report
+          path: ci-tools-report.json

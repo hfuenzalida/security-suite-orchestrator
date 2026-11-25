@@ -1,0 +1,29 @@
+{
+  "seed_from_auth": false,
+  "context": {
+    "username": "demo@example.com",
+    "password": "replace-me"
+  },
+  "steps": [
+    {
+      "id": "get_csrf",
+      "method": "GET",
+      "url": "{{base}}/login",
+      "capture": [
+        {
+          "var": "csrf",
+          "from": "body",
+          "regex": "name=[\"']csrfmiddlewaretoken[\"'][^>]*value=[\"']([^\"']+)"
+        }
+      ]
+    },
+    {
+      "id": "post_login",
+      "method": "POST",
+      "url": "{{base}}/login/",
+      "expect_status": [200, 302],
+      "body": "username={{username}}&password={{password}}&csrfmiddlewaretoken={{csrf}}",
+      "capture": []
+    }
+  ]
+}

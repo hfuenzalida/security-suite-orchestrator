@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "fingerprints": [],
+  "_comment": "Paste correlation_id values (64-char hex) from report JSON key unified_fingerprints_triage, or full sha256 lines from that list."
+}

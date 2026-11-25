@@ -1,0 +1,6 @@
+# Exact pins for CI reproducibility (see .github/workflows/security-scan.yml).
+# Bump deliberately; prefer pip-compile / pip freeze for hash locks in hardened forks.
+fpdf2==2.8.7
+playwright==1.61.0
+pyotp==2.10.0
+pytest==9.0.3

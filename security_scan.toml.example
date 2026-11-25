@@ -1,0 +1,35 @@
+# Optional defaults (merged with SECURITY_SCAN_* env, then CLI overrides).
+# Copy to security_scan.toml or secscan.toml in the project directory,
+# or pass:  python security_scan.py --config path/to/this/file.toml
+
+[defaults]
+path = "."
+# url = "http://localhost:8080"
+ai_model = "qwen2.5-coder:3b"
+workspace = "scan_workspace"
+fail_on = "never"
+# report_tier = "technical"   # executive | technical | full — HTML/PDF narrative only
+# skip = ["browser", "zap"]
+# sarif_source = "unified"    # tool_native | unified — SARIF rows vs --fail-on (see CI_AND_GATES.md)
+
+# [ci]
+# profile = true              # merge CI skips + technical tier + fail_on high if never (see CI_AND_GATES.md)
+
+[paths]
+# Windows / Linux overrides (also: SECURITY_SCAN_ZAP_BAT, SECURITY_SCAN_NMAP)
+# zap_bat = "C:/Program Files/ZAP/Zed Attack Proxy/zap.bat"
+# nmap = "C:/Program Files/Nmap/nmap.exe"
+
+# Seconds for subprocess / HTTP tool budgets (maps to SECURITY_SCAN_TIMEOUT_*)
+# [timeouts]
+# nuclei = 300
+# nuclei_multi_cap = 900
+# gitleaks = 120
+# detect_secrets = 120
+# semgrep = 180
+# bandit = 120
+# pip_audit = 120
+# safety = 120
+# schemathesis = 180
+# ollama = 180
+# ollama_code_ai = 180

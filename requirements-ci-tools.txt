@@ -1,0 +1,5 @@
+# Pinned CLIs for the ci-minimal tool matrix (merge-pipeline --ci-profile).
+semgrep==1.172.0
+bandit==1.9.4
+pip-audit==2.10.1
+detect-secrets==1.5.0

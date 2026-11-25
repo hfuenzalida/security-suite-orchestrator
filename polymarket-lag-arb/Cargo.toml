@@ -1,0 +1,18 @@
+[package]
+name = "polymarket-lag-arb"
+version = "0.1.0"
+edition = "2021"
+description = "Latency-style Polymarket arb harness (CEX feed vs CLOB book) using polymarket-client-sdk"
+license = "MIT"
+
+[dependencies]
+polymarket-client-sdk = { version = "0.4.4", features = ["clob", "ws", "rtds"] }
+alloy = { version = "1.8", default-features = false, features = ["signers", "signer-local"] }
+tokio = { version = "1", features = ["full", "sync", "signal"] }
+futures = "0.3"
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+clap = { version = "4", features = ["derive"] }
+parking_lot = "0.12"
+rust_decimal = "1"

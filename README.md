@@ -1,6 +1,10 @@
 # Security Suite Orchestrator
 
-**Local multi-phase security scanner** that orchestrates SAST, secret detection, dependency audit, DAST, browser automation, optional ZAP, and AI-assisted reasoning—then unifies findings for humans and CI (JSON, SARIF, JUnit, HTML/PDF tiers).
+## Business case
+
+Product teams must ship with **merge-time security gates**, but enterprise ASPM platforms are expensive and many open-source scanners remain **one-off scripts** with incompatible outputs. Security reviews stall when HTML reports cannot drive CI, or when engineers cannot replay what ran before a release.
+
+This orchestrator exists because **someone needs to own the workflow**: one CLI that chains SAST, secrets, dependencies, and optional DAST, then emits **JSON and SARIF that pipelines can trust**. It stays **local-first** so source code and findings remain under customer control, while still supporting staged URLs for dynamic testing. **Intent:** demonstrate a **productizable DevSecOps control plane** for SMEs and security-conscious builders—coordinates best-of-breed tools, does not replace formal pentest or compliance attestation ([OPERATING_GUARANTEES.md](OPERATING_GUARANTEES.md)).
 
 **Stack:** Python 3.11+, pluggable CLI adapters (Semgrep, gitleaks, nuclei, Playwright, …)  
 **License:** [MIT](LICENSE)  
